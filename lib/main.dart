@@ -10,42 +10,66 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            'DRAWER',
-            style: TextStyle(fontSize: 14),
-          ),
-          backgroundColor: const Color(0xff1d1f22),
+      title: 'DRAWER DEMO',
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const Home(),
+        'Notifications': (context) => Scaffold(
+              appBar: AppBar(
+                centerTitle: true,
+                title: const Text(
+                  'Notifications',
+                  style: TextStyle(fontSize: 14),
+                ),
+                backgroundColor: const Color(0xff1d1f22),
+              ),
+              body: const Text("Text"),
+            )
+      },
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text(
+          'DRAWER',
+          style: TextStyle(fontSize: 14),
         ),
-        drawer: Drawer(
-          child: ListView(
-            padding: EdgeInsets.zero,
-            children: [
-              _buildHeader(),
-              _buildItem(
-                  icon: Icons.home,
-                  title: "Home",
-                  onTap: () => Navigator.pop(context)),
-              _buildItem(
-                  icon: Icons.notifications,
-                  title: "Notifications",
-                  onTap: () => Navigator.pushNamed(context, 'Notifications')),
-              _buildItem(
-                  icon: Icons.person,
-                  title: "Profile",
-                  onTap: () => Navigator.pushNamed(context, 'Profile')),
-              _buildItem(
-                  icon: Icons.settings,
-                  title: "Settings",
-                  onTap: () => Navigator.pushNamed(context, 'Settings')),
-            ],
-          ),
+        backgroundColor: const Color(0xff1d1f22),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            _buildHeader(),
+            _buildItem(
+                icon: Icons.home,
+                title: "Home",
+                onTap: () => Navigator.pop(context)),
+            _buildItem(
+                icon: Icons.notifications,
+                title: "Notifications",
+                onTap: () => Navigator.pushNamed(context, 'Notifications')),
+            _buildItem(
+                icon: Icons.person,
+                title: "Profile",
+                onTap: () => Navigator.pushNamed(context, 'Profile')),
+            _buildItem(
+                icon: Icons.settings,
+                title: "Settings",
+                onTap: () => Navigator.pushNamed(context, 'Settings')),
+          ],
         ),
-        body: const Center(
-          child: Text('Hello World!'),
-        ),
+      ),
+      body: const Center(
+        child: Text('Hello World!'),
       ),
     );
   }
