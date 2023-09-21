@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
         'Notifications': (context) => const Notifications(),
         'Profile': (context) => const Profile(),
         'Settings': (context) => const Settings(),
-        'ImageViewer': (context) => const ImageViewer(image: '')
+        'ImageViewer': (context) => const ImageViewer()
       },
     );
   }
